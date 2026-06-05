@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thamyres Sanflorian — Psicóloga | TCC e Logoterapia</title>
+<meta name="description" content="Psicóloga Thamyres Sanflorian (CRP 06/216304). Terapia Cognitivo-Comportamental e Logoterapia. Atendimento online e presencial.">
+
+<!-- Fontes -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* Paleta orgânica — verde sage, terra, cream, dourado */
+    --verde-profundo: #2E3D2F;
+    --verde-floresta: #3A4D3B;
+    --verde-sage: #6E7E63;
+    --verde-claro: #8B9A7E;
+    --cream: #F4EFE4;
+    --cream-escuro: #EAE2D2;
+    --bege: #DDD2BC;
+    --off-white: #FBF8F1;
+    --dourado: #B08D52;
+    --dourado-claro: #C4A572;
+    --texto: #2A2A24;
+    --texto-suave: #5A5A4E;
+    --texto-claro: #FBF8F1;
+
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Outfit', -apple-system, sans-serif;
+
+    --radius: 4px;
+    --radius-lg: 20px;
+    --transition: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--texto);
+    background: var(--off-white);
+    line-height: 1.7;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img { display: block; max-width: 100%; height: auto; }
+
+  a { text-decoration: none; color: inherit; }
+
+  .container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ===== TIPOGRAFIA ===== */
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.1; letter-spacing: -0.01em; }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--dourado);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--dourado);
+  }
+
+  /* ===== BOTÕES ===== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background: var(--verde-profundo);
+    color: var(--texto-claro) !important; /* Adicionado !important para forçar a cor clara */
+  }
+  .btn-primary svg {
+    stroke: var(--texto-claro); /* Garante que o ícone do header também fique claro */
+  }
+  .btn-primary:hover {
+    background: var(--verde-floresta);
+    color: var(--texto-claro) !important; /* Mantém claro no efeito hover */
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(46, 61, 47, 0.25);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--verde-profundo);
+    border-color: var(--verde-sage);
+  }
+  .btn-outline:hover {
+    background: var(--verde-profundo);
+    color: var(--texto-claro);
+    border-color: var(--verde-profundo);
+  }
+  .btn-light {
+    background: var(--cream);
+    color: var(--verde-profundo);
+  }
+  .btn-light:hover {
+    background: var(--off-white);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  }
+  .btn svg { width: 18px; height: 18px; }
+
+  /* ===== HEADER ===== */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 22px 0;
+    transition: var(--transition);
+  }
+  header.scrolled {
+    background: rgba(251, 248, 241, 0.92);
+    backdrop-filter: blur(12px);
+    padding: 14px 0;
+    box-shadow: 0 1px 0 rgba(42,42,36,0.06);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo { 
+    line-height: 1.15; 
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Substitua as regras antigas por estas: */
+  .logo img {
+    height: 48px; /* Altura ideal para o logo ficar elegante no header */
+    width: auto;  /* Mantém a proporção da imagem sem distorcer */
+    display: block;
+    transition: var(--transition); /* Suaviza a mudança de tamanho ao rolar a página */
+  }
+
+  /* Diminui levemente o logo quando o header encolher no scroll */
+  header.scrolled .logo img {
+    height: 40px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 38px;
+    align-items: center;
+  }
+  .nav-links a {
+    font-size: 0.92rem;
+    font-weight: 400;
+    color: var(--texto);
+    position: relative;
+    transition: color 0.3s;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1px;
+    background: var(--dourado);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--dourado); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+  .menu-toggle span {
+    width: 24px; height: 2px;
+    background: var(--verde-profundo);
+    transition: var(--transition);
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 160px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -10%; right: -8%;
+    width: 480px; height: 480px;
+    background: radial-gradient(circle, rgba(176,141,82,0.10) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 70px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-content .eyebrow { margin-bottom: 28px; }
+  .hero h1 {
+    font-size: clamp(2.6rem, 5.2vw, 4.3rem);
+    margin-bottom: 28px;
+    color: var(--verde-profundo);
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--dourado);
+    font-weight: 300;
+  }
+  .hero-text {
+    font-size: 1.12rem;
+    color: var(--texto-suave);
+    max-width: 480px;
+    margin-bottom: 38px;
+  }
+  .hero-features {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 42px;
+    flex-wrap: wrap;
+  }
+  .hero-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-feature .icon {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: var(--cream-escuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .hero-feature .icon svg { width: 20px; height: 20px; stroke: var(--verde-sage); }
+  .hero-feature .label {
+    font-size: 0.86rem;
+    line-height: 1.35;
+    color: var(--texto);
+  }
+  .hero-feature .label strong { font-weight: 600; display: block; }
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .hero-image {
+    position: relative;
+  }
+  .hero-image .photo-frame {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 30px 70px rgba(46,61,47,0.20);
+  }
+  .hero-image .photo-frame img {
+    width: 100%;
+    aspect-ratio: 4/4.6;
+    object-fit: cover;
+  }
+  .hero-image .badge-float {
+    position: absolute;
+    bottom: 28px; left: -28px;
+    background: var(--off-white);
+    padding: 18px 26px;
+    border-radius: 14px;
+    box-shadow: 0 18px 40px rgba(46,61,47,0.18);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .badge-float .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--verde-sage);
+    position: relative;
+  }
+  .badge-float .dot::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 1px solid var(--verde-sage);
+    opacity: 0.4;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.4; }
+    100% { transform: scale(1.8); opacity: 0; }
+  }
+  .badge-float .txt { font-size: 0.82rem; line-height: 1.3; }
+  .badge-float .txt strong { font-weight: 600; display: block; color: var(--verde-profundo); }
+
+  /* ===== SINTOMAS / "VOCÊ PODE ESTAR" ===== */
+  .symptoms {
+    padding: 100px 0;
+    background: var(--cream);
+  }
+  .section-head {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 60px;
+  }
+  .section-head .eyebrow { margin-bottom: 22px; justify-content: center; }
+  .section-head .eyebrow::after {
+    content: '';
+    width: 32px; height: 1px;
+    background: var(--dourado);
+  }
+  .section-head h2 {
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    color: var(--verde-profundo);
+    margin-bottom: 18px;
+  }
+  .section-head p {
+    font-size: 1.08rem;
+    color: var(--texto-suave);
+  }
+  .symptoms-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .symptom-card {
+    background: var(--off-white);
+    padding: 38px 32px;
+    border-radius: var(--radius-lg);
+    transition: var(--transition);
+    border: 1px solid transparent;
+  }
+  .symptom-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(46,61,47,0.10);
+    border-color: var(--bege);
+  }
+  .symptom-card .ico {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    background: var(--cream-escuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    transition: var(--transition);
+  }
+  .symptom-card:hover .ico { background: var(--verde-profundo); }
+  .symptom-card .ico svg { width: 26px; height: 26px; stroke: var(--verde-sage); transition: var(--transition); }
+  .symptom-card:hover .ico svg { stroke: var(--cream); }
+  .symptom-card h3 {
+    font-size: 1.35rem;
+    color: var(--verde-profundo);
+    margin-bottom: 12px;
+  }
+  .symptom-card p {
+    font-size: 0.95rem;
+    color: var(--texto-suave);
+  }
+  .symptoms-note {
+    text-align: center;
+    margin-top: 50px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--verde-sage);
+  }
+
+  /* ===== SOBRE MIM ===== */
+  .about {
+    padding: 110px 0;
+    position: relative;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 70px;
+    align-items: center;
+  }
+  .about-image {
+    position: relative;
+  }
+  .about-image .photo-frame {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 30px 70px rgba(46,61,47,0.18);
+  }
+  .about-image .photo-frame img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    object-position: center 20%;
+  }
+  .about-image::after {
+    content: '';
+    position: absolute;
+    top: -20px; left: -20px;
+    width: 90px; height: 90px;
+    border-top: 2px solid var(--dourado);
+    border-left: 2px solid var(--dourado);
+    border-radius: 8px 0 0 0;
+    z-index: -1;
+  }
+  .about-content .eyebrow { margin-bottom: 24px; }
+  .about-content h2 {
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    color: var(--verde-profundo);
+    margin-bottom: 28px;
+  }
+  .about-content p {
+    font-size: 1.05rem;
+    color: var(--texto-suave);
+    margin-bottom: 20px;
+  }
+  .about-content p strong { color: var(--texto); font-weight: 600; }
+  .about-quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--verde-profundo);
+    padding: 24px 0 24px 28px;
+    border-left: 2px solid var(--dourado);
+    margin: 32px 0;
+    line-height: 1.4;
+  }
+  .credentials {
+    display: flex;
+    gap: 40px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .credential .num {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    color: var(--dourado);
+    line-height: 1;
+  }
+  .credential .desc {
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+    margin-top: 6px;
+  }
+
+  /* ===== ABORDAGEM ===== */
+  .approach {
+    padding: 110px 0;
+    background: var(--verde-profundo);
+    color: var(--texto-claro);
+    position: relative;
+    overflow: hidden;
+  }
+  .approach::before {
+    content: '';
+    position: absolute;
+    bottom: -15%; left: -8%;
+    width: 420px; height: 420px;
+    background: radial-gradient(circle, rgba(176,141,82,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .approach .section-head h2 { color: var(--cream); }
+  .approach .section-head p { color: rgba(251,248,241,0.7); }
+  .approach .section-head .eyebrow { color: var(--dourado-claro); }
+  .approach .section-head .eyebrow::before,
+  .approach .section-head .eyebrow::after { background: var(--dourado-claro); }
+  .approach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 60px;
+  }
+  .approach-card {
+    background: rgba(251,248,241,0.05);
+    border: 1px solid rgba(251,248,241,0.12);
+    border-radius: var(--radius-lg);
+    padding: 44px 40px;
+    transition: var(--transition);
+  }
+  .approach-card:hover {
+    background: rgba(251,248,241,0.09);
+    transform: translateY(-5px);
+  }
+  .approach-card .tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dourado-claro);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .approach-card h3 {
+    font-size: 1.7rem;
+    color: var(--cream);
+    margin-bottom: 18px;
+  }
+  .approach-card p {
+    font-size: 1rem;
+    color: rgba(251,248,241,0.75);
+    line-height: 1.7;
+  }
+  .approach-features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+    padding-top: 50px;
+    border-top: 1px solid rgba(251,248,241,0.12);
+  }
+  .approach-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .approach-feature svg {
+    width: 22px; height: 22px;
+    stroke: var(--dourado-claro);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .approach-feature span {
+    font-size: 0.92rem;
+    color: rgba(251,248,241,0.85);
+    line-height: 1.4;
+  }
+
+  /* ===== COMO FUNCIONA ===== */
+  .process {
+    padding: 110px 0;
+    background: var(--cream);
+  }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    position: relative;
+  }
+  .process-step {
+    text-align: center;
+    position: relative;
+  }
+  .process-step .step-num {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: var(--off-white);
+    border: 1px solid var(--bege);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 26px;
+    position: relative;
+    z-index: 2;
+    transition: var(--transition);
+  }
+  .process-step:hover .step-num {
+    background: var(--verde-profundo);
+    border-color: var(--verde-profundo);
+  }
+  .process-step .step-num svg { width: 32px; height: 32px; stroke: var(--verde-sage); transition: var(--transition); }
+  .process-step:hover .step-num svg { stroke: var(--cream); }
+  .process-step .step-count {
+    position: absolute;
+    top: -8px; right: calc(50% - 52px);
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--dourado);
+    color: var(--off-white);
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+  }
+  .process-step h3 {
+    font-size: 1.4rem;
+    color: var(--verde-profundo);
+    margin-bottom: 12px;
+  }
+  .process-step p {
+    font-size: 0.96rem;
+    color: var(--texto-suave);
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  /* ===== CTA FINAL ===== */
+  .cta-final {
+    position: relative;
+    padding: 130px 0;
+    overflow: hidden;
+  }
+  .cta-final .bg-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .cta-final .bg-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .cta-final .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(46,61,47,0.92) 0%, rgba(46,61,47,0.72) 100%);
+    z-index: 1;
+  }
+  .cta-final .container { position: relative; z-index: 2; }
+  .cta-content {
+    max-width: 680px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .cta-content .eyebrow { justify-content: center; margin-bottom: 24px; color: var(--dourado-claro); }
+  .cta-content .eyebrow::before { background: var(--dourado-claro); }
+  .cta-content h2 {
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    color: var(--cream);
+    margin-bottom: 24px;
+  }
+  .cta-content h2 em { font-style: italic; color: var(--dourado-claro); font-weight: 300; }
+  .cta-content p {
+    font-size: 1.15rem;
+    color: rgba(251,248,241,0.82);
+    margin-bottom: 40px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--verde-profundo);
+    color: rgba(251,248,241,0.7);
+    padding: 70px 0 32px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 50px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(251,248,241,0.12);
+  }
+  .footer-brand .name {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+  .footer-brand .crp {
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dourado-claro);
+    margin-bottom: 20px;
+  }
+  .footer-brand p {
+    font-size: 0.96rem;
+    max-width: 340px;
+    line-height: 1.7;
+  }
+  .footer-col h4 {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 20px;
+  }
+  .footer-col a, .footer-col p {
+    display: block;
+    font-size: 0.95rem;
+    color: rgba(251,248,241,0.7);
+    margin-bottom: 12px;
+    transition: color 0.3s;
+  }
+  .footer-col a:hover { color: var(--dourado-claro); }
+  .footer-social {
+    display: flex;
+    gap: 14px;
+    margin-top: 4px;
+  }
+  .footer-social a {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(251,248,241,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    margin: 0;
+  }
+  .footer-social a:hover {
+    background: var(--dourado);
+    border-color: var(--dourado);
+    transform: translateY(-3px);
+  }
+  .footer-social svg { width: 18px; height: 18px; stroke: var(--cream); }
+  .footer-bottom {
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* ===== WHATSAPP FLUTUANTE ===== */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 26px rgba(37,211,102,0.45);
+    z-index: 999;
+    transition: var(--transition);
+  }
+  .whatsapp-float:hover { transform: scale(1.1) translateY(-2px); }
+  .whatsapp-float svg { width: 30px; height: 30px; fill: white; }
+
+  /* ===== ANIMAÇÕES DE SCROLL ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ===== RESPONSIVO ===== */
+  @media (max-width: 980px) {
+    .hero-grid, .about-grid, .approach-grid { grid-template-columns: 1fr; gap: 50px; }
+    .hero-image { order: -1; max-width: 420px; margin: 0 auto; }
+    .about-image { max-width: 420px; margin: 0 auto; }
+    .symptoms-grid { grid-template-columns: repeat(2, 1fr); }
+    .approach-features { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 680px) {
+    .container { padding: 0 22px; }
+    .nav-links { display: none; }
+    .menu-toggle { display: flex; }
+    .nav-links.open {
+      display: flex;
+      position: absolute;
+      top: 100%; left: 0;
+      width: 100%;
+      flex-direction: column;
+      background: var(--off-white);
+      padding: 24px 22px;
+      gap: 20px;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.1);
+    }
+    .hero { padding: 130px 0 70px; }
+    .hero-cta { flex-direction: column; }
+    .hero-cta .btn { justify-content: center; }
+    .symptoms-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr; gap: 50px; }
+    .process-line { display: none; }
+    .process-step .step-count { right: calc(50% - 52px); }
+    .approach-features { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .hero-image .badge-float { left: 50%; transform: translateX(-50%); bottom: -24px; }
+    .credentials { gap: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header id="header">
+  <div class="container nav">
+    <a href="#" class="logo">
+      <img src="images/logo.png" alt="Logo Thamyres Sanflorian — Psicóloga">
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#sobre">Sobre</a>
+      <a href="#abordagem">Abordagem</a>
+      <a href="#processo">Como funciona</a>
+      <a href="#contato">Contato</a>
+      <a href="https://psicothamyressanflorian.com.br/" target="_blank" rel="noopener" class="btn btn-primary" style="padding:11px 24px;">Agendar consulta</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <span class="eyebrow reveal">Terapia com propósito</span>
+      <h1 class="reveal reveal-delay-1">Um espaço para você reencontrar <em>sentido</em> e equilíbrio.</h1>
+      <p class="hero-text reveal reveal-delay-2">Psicoterapia baseada em evidências, com escuta acolhedora e ferramentas práticas para transformar a forma como você vive e enxerga a vida. Atendimento online e presencial.</p>
+
+      <div class="hero-features reveal reveal-delay-2">
+        <div class="hero-feature">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="label"><strong>Atendimento</strong>adultos</div>
+        </div>
+        <div class="hero-feature">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 22h8M12 18v4"/></svg>
+          </div>
+          <div class="label"><strong>Presencial</strong>e online</div>
+        </div>
+        <div class="hero-feature">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/></svg>
+          </div>
+          <div class="label"><strong>Sigilo</strong>e acolhimento</div>
+        </div>
+      </div>
+
+      <div class="hero-cta reveal reveal-delay-3">
+        <a href="https://psicothamyressanflorian.com.br/" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Agendar consulta online
+        </a>
+        <a href="https://wa.me/5519996744457?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta" target="_blank" rel="noopener" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.2 4.6 2.6 1.1 3.1.9 3.7.8.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.5A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .9.9-2.9-.2-.3A8 8 0 1112 20z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-image reveal reveal-delay-2">
+      <div class="photo-frame">
+        <picture>
+          <source media="(min-width:1024px)" srcset="images/Hero-desktop.webp" type="image/webp">
+          <source media="(min-width:768px)" srcset="images/Hero-tablet.webp" type="image/webp">
+          <source srcset="images/Hero-mobile.webp" type="image/webp">
+          <img src="images/Hero-desktop.jpg" alt="Thamyres Sanflorian, psicóloga" loading="eager">
+        </picture>
+      </div>
+      <div class="badge-float">
+        <div class="dot"></div>
+        <div class="txt"><strong>TCC + Logoterapia</strong>Abordagem integrada</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SINTOMAS ===== -->
+<section class="symptoms">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Você não precisa passar por isso sozinho(a)</span>
+      <h2>Quando a terapia pode te ajudar</h2>
+      <p>Buscar apoio é um ato de coragem e cuidado consigo mesmo. Veja algumas questões que podemos trabalhar juntos.</p>
+    </div>
+
+    <div class="symptoms-grid">
+      <div class="symptom-card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><path d="M12 2a7 7 0 00-7 7c0 3 2 5 2 7v2a3 3 0 006 0v-2c0-2 2-4 2-7a7 7 0 00-3-7z"/></svg></div>
+        <h3>Ansiedade</h3>
+        <p>Preocupações constantes, medo excessivo e crises que atrapalham seu dia a dia.</p>
+      </div>
+      <div class="symptom-card reveal reveal-delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+        <h3>Estresse e burnout</h3>
+        <p>Cansaço emocional, sobrecarga e esgotamento que afetam corpo e mente.</p>
+      </div>
+      <div class="symptom-card reveal reveal-delay-2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></div>
+        <h3>Relacionamentos</h3>
+        <p>Dificuldades nos vínculos afetivos, conflitos e padrões que se repetem.</p>
+      </div>
+      <div class="symptom-card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 016-6h4a6 6 0 016 6v1"/></svg></div>
+        <h3>Autoestima</h3>
+        <p>Autocrítica excessiva, insegurança e dificuldade de reconhecer seu valor.</p>
+      </div>
+      <div class="symptom-card reveal reveal-delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5M12 16h.01"/></svg></div>
+        <h3>Falta de sentido</h3>
+        <p>Sensação de vazio, desmotivação e a busca por propósito e direção na vida.</p>
+      </div>
+      <div class="symptom-card reveal reveal-delay-2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <h3>Luto e mudanças</h3>
+        <p>Apoio em perdas, transições e momentos difíceis que exigem reconstrução.</p>
+      </div>
+    </div>
+
+    <p class="symptoms-note reveal">"A terapia pode te ajudar a compreender, ressignificar e transformar sua vida."</p>
+  </div>
+</section>
+
+<!-- ===== SOBRE MIM ===== -->
+<section class="about" id="sobre">
+  <div class="container about-grid">
+    <div class="about-image reveal">
+      <div class="photo-frame">
+        <picture>
+          <source media="(min-width:1024px)" srcset="images/Sobre_mim-desktop.webp" type="image/webp">
+          <source media="(min-width:768px)" srcset="images/Sobre_mim-tablet.webp" type="image/webp">
+          <source srcset="images/Sobre_mim-mobile.webp" type="image/webp">
+          <img src="images/Sobre_mim-desktop.jpg" alt="Thamyres Sanflorian sorrindo durante atendimento" loading="lazy">
+        </picture>
+      </div>
+    </div>
+
+    <div class="about-content">
+      <span class="eyebrow reveal">Sobre mim</span>
+      <h2 class="reveal reveal-delay-1">Prazer, sou a Thamyres</h2>
+      <p class="reveal reveal-delay-1">Sou <strong>Thamyres Sanflorian</strong>, psicóloga (CRP 06/216304), e acredito que cada pessoa carrega dentro de si a capacidade de transformar a própria história — às vezes só precisamos de um espaço seguro para isso.</p>
+      <p class="reveal reveal-delay-2">Meu trabalho une a <strong>Terapia Cognitivo-Comportamental (TCC)</strong> e a <strong>Logoterapia</strong>, oferecendo um cuidado que é ao mesmo tempo prático e profundo: ferramentas concretas para o dia a dia, somadas a uma reflexão sobre o sentido daquilo que você vive.</p>
+
+      <blockquote class="about-quote reveal reveal-delay-2">Aquele que tem um porquê para viver pode suportar quase qualquer como.</blockquote>
+
+      <p class="reveal reveal-delay-3">Meu propósito é caminhar ao seu lado em direção a uma vida mais leve, consciente e com significado. Será um prazer te acompanhar nesse processo.</p>
+
+      <div class="credentials reveal reveal-delay-3">
+        <div class="credential">
+          <div class="num">TCC</div>
+          <div class="desc">Terapia Cognitivo-<br>Comportamental</div>
+        </div>
+        <div class="credential">
+          <div class="num">Logo</div>
+          <div class="desc">Logoterapia<br>(sentido de vida)</div>
+        </div>
+        <div class="credential">
+          <div class="num">100%</div>
+          <div class="desc">Sigilo e ética<br>profissional</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABORDAGEM ===== -->
+<section class="approach" id="abordagem">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Minha abordagem</span>
+      <h2>Duas abordagens, um só cuidado</h2>
+      <p>A combinação da ciência da TCC com a profundidade da Logoterapia cria um processo terapêutico completo e personalizado para você.</p>
+    </div>
+
+    <div class="approach-grid">
+      <div class="approach-card reveal">
+        <span class="tag">Prática & baseada em evidências</span>
+        <h3>Terapia Cognitivo-Comportamental</h3>
+        <p>A TCC trabalha a relação entre pensamentos, emoções e comportamentos. Juntos, identificamos padrões que causam sofrimento e desenvolvemos ferramentas concretas para mudá-los, gerando resultados reais no seu dia a dia.</p>
+      </div>
+      <div class="approach-card reveal reveal-delay-1">
+        <span class="tag">Profunda & existencial</span>
+        <h3>Logoterapia</h3>
+        <p>Criada por Viktor Frankl, a Logoterapia parte da busca pelo sentido. Mais do que aliviar sintomas, ela ajuda você a encontrar propósito, fazer escolhas conscientes e atravessar até os momentos mais difíceis com significado.</p>
+      </div>
+    </div>
+
+    <div class="approach-features">
+      <div class="approach-feature reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+        <span>Foco em soluções práticas</span>
+      </div>
+      <div class="approach-feature reveal reveal-delay-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+        <span>Ferramentas para o dia a dia</span>
+      </div>
+      <div class="approach-feature reveal reveal-delay-2">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+        <span>Autoconhecimento e propósito</span>
+      </div>
+      <div class="approach-feature reveal reveal-delay-3">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+        <span>Cuidado humano e ético</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMO FUNCIONA ===== -->
+<section class="process" id="processo">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Como funciona</span>
+      <h2>Começar é mais simples do que parece</h2>
+      <p>Em três passos, você dá início ao seu processo de cuidado e transformação.</p>
+    </div>
+
+    <div class="process-grid">
+
+      <div class="process-step reveal">
+        <div class="step-num">
+          <div class="step-count">1</div>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.5 8.5 8.5 0 01-4-1L3 21l1.5-5a8.5 8.5 0 018-12 8.4 8.4 0 018.5 8z"/></svg>
+        </div>
+        <h3>Entre em contato</h3>
+        <p>Clique no botão do WhatsApp e me envie uma mensagem. Vou te responder com todo carinho.</p>
+      </div>
+
+      <div class="process-step reveal reveal-delay-1">
+        <div class="step-num">
+          <div class="step-count">2</div>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        </div>
+        <h3>Agende sua sessão</h3>
+        <p>Combinamos o melhor dia e horário para você, de forma online ou presencial.</p>
+      </div>
+
+      <div class="process-step reveal reveal-delay-2">
+        <div class="step-num">
+          <div class="step-count">3</div>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z"/></svg>
+        </div>
+        <h3>Inicie seu processo</h3>
+        <p>Um espaço seguro e acolhedor para você se cuidar, se conhecer e transformar sua vida.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="cta-final">
+  <div class="bg-image">
+    <picture>
+      <source media="(min-width:1024px)" srcset="images/Lifestyle-desktop.webp" type="image/webp">
+      <source media="(min-width:768px)" srcset="images/Lifestyle-tablet.webp" type="image/webp">
+      <source srcset="images/Lifestyle-mobile.webp" type="image/webp">
+      <img src="images/Lifestyle-desktop.jpg" alt="Ambiente acolhedor" loading="lazy">
+    </picture>
+  </div>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="cta-content">
+      <span class="eyebrow reveal">Dê o primeiro passo</span>
+      <h2 class="reveal reveal-delay-1">Sua jornada para uma vida com <em>mais sentido</em> começa agora.</h2>
+      <p class="reveal reveal-delay-2">Não espere o momento perfeito. O melhor momento para cuidar de você é hoje.</p>
+      <div class="reveal reveal-delay-2" style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <a href="https://psicothamyressanflorian.com.br/" target="_blank" rel="noopener" class="btn btn-light">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <path d="M16 2v4M8 2v4M3 10h18"/>
+          </svg>
+          Agendar consulta online
+        </a>
+        <a href="https://wa.me/5519996744457?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta" target="_blank" rel="noopener" class="btn" style="background:transparent; color:var(--cream); border:1px solid rgba(251,248,241,0.45);">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.2 4.6 2.6 1.1 3.1.9 3.7.8.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.5A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .9.9-2.9-.2-.3A8 8 0 1112 20z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer id="contato">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="name">Thamyres Sanflorian</div>
+        <div class="crp">Psicóloga · CRP 06/216304</div>
+        <p>Psicoterapia para adultos com Terapia Cognitivo-Comportamental e Logoterapia. Um espaço de acolhimento para você reencontrar sentido e equilíbrio.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <a href="#sobre">Sobre mim</a>
+        <a href="#abordagem">Abordagem</a>
+        <a href="#processo">Como funciona</a>
+        <a href="https://psicothamyressanflorian.com.br/" target="_blank" rel="noopener">Agendar consulta</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="https://wa.me/5519996744457?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta" target="_blank" rel="noopener">WhatsApp: (19) 99674-4457</a>
+        <a href="mailto:tatasanflorian@gmail.com">tatasanflorian@gmail.com</a>
+        <a href="https://psicothamyressanflorian.com.br/" target="_blank" rel="noopener">Agendamento online</a>
+        <p>Atendimento online e presencial</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/psithamyressanflorian/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://wa.me/5519996744457?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.5 8.5 8.5 0 01-4-1L3 21l1.5-5a8.5 8.5 0 018-12 8.4 8.4 0 018.5 8z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Thamyres Sanflorian. Todos os direitos reservados.</span>
+      <span>CRP 06/216304</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Flutuante -->
+<a href="https://wa.me/5519996744457?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta" class="whatsapp-float" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.2 4.6 2.6 1.1 3.1.9 3.7.8.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.5A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .9.9-2.9-.2-.3A8 8 0 1112 20z"/></svg>
+</a>
+
+<script>
+  // Header scroll
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Menu mobile
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Animações de scroll (reveal)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
