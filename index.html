@@ -1205,6 +1205,46 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // === Rastreamento de conversão Google Ads — cliques no WhatsApp ===
+  // Para alterar a conversão, basta trocar o ID nesta linha:
+  const GADS_WHATSAPP_SEND_TO = 'AW-18052061623/jlnPCOXvr7scELez8p9D';
+
+  function reportarConversaoWhatsapp(destino, abrirNaMesmaAba) {
+    let jaAbriu = false;
+    const abrirWhatsapp = function () {
+      if (jaAbriu) return;
+      jaAbriu = true;
+      if (abrirNaMesmaAba && destino) window.location.href = destino;
+    };
+    // Garantia: se o gtag estiver bloqueado/lento, abre o WhatsApp mesmo assim
+    if (abrirNaMesmaAba) setTimeout(abrirWhatsapp, 1200);
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {
+        'send_to': GADS_WHATSAPP_SEND_TO,
+        'value': 1.0,
+        'currency': 'BRL',
+        'event_callback': abrirWhatsapp
+      });
+    } else {
+      abrirWhatsapp();
+    }
+  }
+
+  // Aplica a todos os links de WhatsApp do site (topo, hero, CTA, rodapé e flutuante)
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      if (link.target === '_blank') {
+        // Abre em nova aba: dispara a conversão e deixa abrir normalmente
+        reportarConversaoWhatsapp(null, false);
+      } else {
+        // Abre na mesma aba: segura, dispara a conversão e então redireciona
+        e.preventDefault();
+        reportarConversaoWhatsapp(link.href, true);
+      }
+    });
+  });
 </script>
 
 </body>
